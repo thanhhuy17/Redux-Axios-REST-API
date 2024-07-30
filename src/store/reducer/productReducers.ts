@@ -1,22 +1,30 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type TypeInitialState = {
-    id: string
-    name: string
+export interface TypeDataProduct {
+    id: number
+    title: string
     price: number
+    description: string
+    image: string
+    category: string
 }
 
-const initialState: TypeInitialState[] = [{
-    id: "1", name: "T-shirt", price: 5
-}]
+export interface TypeInitialState {
+    productData: TypeDataProduct[];
+}
+
+const initialState: TypeInitialState = {
+    productData: []
+}
 
 
 export const productSlice = createSlice({
     name: "product",
     initialState,
     reducers: {
-        setProduct: (state, action: PayloadAction<TypeInitialState[]>) => {
-            action.payload
+        setProduct: (state, action: PayloadAction<TypeDataProduct[]>) => {
+            state.productData = action.payload
+            console.log("Data khi dispatch:  ",action.payload);
         },
         selectedProduct: (state, action: PayloadAction<TypeInitialState[]>) => {
             action.payload
