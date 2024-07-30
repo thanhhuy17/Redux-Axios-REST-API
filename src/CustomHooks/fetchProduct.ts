@@ -14,10 +14,10 @@ const useFetchProduct = (endPoint: string) => {
             console.log("Fetch Data Error!");
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         fetchData()
-    },[endPoint])
-    return{data, loading}
+    }, [endPoint])
+    return { data, loading }
 }
 
 export default useFetchProduct

@@ -13,10 +13,16 @@ const ProductComponent = ({
       <div key={id} className="hover:scale-105 transition">
         <div className="relative max-w-[250px] h-[380px] bg-white rounded-xl shadow-lg shadow-emerald-500">
           <div className="absolute w-full h-[70%]  flex flex-col items-center justify-center">
-            <img
-              src={image}
-              className="absolute w-[150px] h-fit rounded-t-xl"
-            />
+            {image ? (
+              <img
+                src={image}
+                className="absolute w-[150px] h-fit rounded-t-xl"
+              />
+            ) : (
+              <div className="absolute w-[150px] h-fit rounded-t-xl">
+                No Image Found{" "}
+              </div>
+            )}
           </div>
           <h2 className="absolute top-2 left-2 text-emerald-600 font-semibold">
             {price}$
