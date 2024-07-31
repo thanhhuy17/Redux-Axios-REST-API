@@ -6,13 +6,14 @@ import { Button } from "antd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import ShowNotification from "../components/ShowNotification";
 
 interface TypeDetail extends TypeDataProduct {
   rating: object;
 }
 
 const ProductDetailPage = () => {
-  const getAddData = useSelector((state: RootState)=> state.proNumber)
+  const getAddData = useSelector((state: RootState) => state.proNumber);
   const param = useParams();
   const navigateHome = useNavigate();
   // const [proNumber, setProNumber] = useState(getAddData);
@@ -24,11 +25,12 @@ const ProductDetailPage = () => {
 
   const handleAddProductIn = () => {
     // setProNumber((prev) => prev + 1);
-    const a = getAddData  + 1
-    console.log("So Luong: ", a); // Bây giờ sẽ hiển thị giá trị đã cập nhật
-    dispatch(addProduct(a));
+    const number = getAddData + 1;
+    console.log("So Luong: ", number); // Bây giờ sẽ hiển thị giá trị đã cập nhật
+    dispatch(addProduct(number));
 
     navigateHome("/");
+    // <ShowNotification/>
   };
 
   return (
