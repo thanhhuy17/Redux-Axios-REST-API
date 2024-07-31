@@ -7,14 +7,17 @@ export interface TypeDataProduct {
     description: string
     image: string
     category: string
+
 }
 
 export interface TypeInitialState {
     productData: TypeDataProduct[];
+    proNumber: number
 }
 
 const initialState: TypeInitialState = {
-    productData: []
+    productData: [],
+    proNumber: 0
 }
 
 
@@ -24,11 +27,11 @@ export const productSlice = createSlice({
     reducers: {
         setProduct: (state, action: PayloadAction<TypeDataProduct[]>) => {
             state.productData = action.payload
-            console.log("Data khi dispatch:  ",action.payload);
+            // console.log("Data khi dispatch:  ", action.payload);
         },
-        selectedProduct: (state, action: PayloadAction<TypeInitialState[]>) => {
-            action.payload
-
+        addProduct: (state, action) => {
+            state.proNumber = action.payload
+            console.log("Kiem tra so luong dc ban qua reducer: ",action.payload);
         },
         removeSelectedProduct: (state, action: PayloadAction<TypeInitialState[]>) => {
             action.payload
@@ -37,6 +40,6 @@ export const productSlice = createSlice({
     }
 })
 
-export const { setProduct, selectedProduct, removeSelectedProduct } = productSlice.actions
+export const { setProduct, addProduct, removeSelectedProduct } = productSlice.actions
 const productReducer = productSlice.reducer
 export default productReducer
