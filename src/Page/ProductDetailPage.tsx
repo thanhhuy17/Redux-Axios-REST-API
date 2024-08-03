@@ -3,10 +3,9 @@ import useFetchProduct from "../CustomHooks/fetchProduct";
 import { addProduct, TypeDataProduct } from "../store/reducer/productReducers";
 import { FaStar } from "react-icons/fa";
 import { Button } from "antd";
-import { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import ShowNotification from "../components/ShowNotification";
 
 interface TypeDetail extends TypeDataProduct {
   rating: object;
