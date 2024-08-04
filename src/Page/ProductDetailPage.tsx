@@ -12,7 +12,9 @@ interface TypeDetail extends TypeDataProduct {
 }
 
 const ProductDetailPage = () => {
-  const getAddData = useSelector((state: RootState) => state.proNumber);
+  const getAddData = useSelector(
+    (state: RootState) => state?.productReducer?.proNumber
+  );
   const param = useParams();
   const navigateHome = useNavigate();
   // const [proNumber, setProNumber] = useState(getAddData);

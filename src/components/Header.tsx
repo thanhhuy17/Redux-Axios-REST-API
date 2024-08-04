@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 
 const Header = () => {
-  const numberProduct = useSelector((state: RootState) => state.proNumber);
+  const numberProduct = useSelector((state: RootState) => state?.productReducer?.proNumber);
   return (
     <div
       className="fixed flex items-center top-0 px-20 text-emerald-400 text-xl font-bold

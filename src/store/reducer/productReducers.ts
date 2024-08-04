@@ -7,7 +7,6 @@ export interface TypeDataProduct {
     description: string
     image: string
     category: string
-
 }
 
 export interface TypeInitialState {
@@ -31,7 +30,7 @@ export const productSlice = createSlice({
         },
         addProduct: (state, action) => {
             state.proNumber = action.payload
-            console.log("Kiem tra so luong dc ban qua reducer: ",action.payload);
+            console.log("Kiem tra so luong dc ban qua reducer: ", action.payload);
         },
         removeSelectedProduct: (state, action: PayloadAction<TypeInitialState[]>) => {
             action.payload
